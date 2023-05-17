@@ -1,0 +1,6 @@
+- pipeline.id: employee
+  path.config: "/usr/share/logstash/pipeline/logstash.conf"
+
+#- pipeline.id: sample
+#  path.config: "/opt/elk/pipeline/logstash.conf"
+
