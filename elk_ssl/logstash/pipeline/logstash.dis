@@ -1,0 +1,29 @@
+input {
+  file {
+    path => "/opt/single-elk/logstash/pipeline/*.csv"
+    sincedb_path => "/dev/null"
+    start_position => "beginning"
+  }
+}
+filter {
+   csv {
+        separator => ","
+        columns => ["Employee ID","Full Name","Job Title","Department","Business Unit","Gender","Ethnicity","Age","Hire Date","Annual Salary","Bonus %","Country","City","Exit Date"]
+}
+}
+output {
+        elasticsearch {
+        hosts => "http://elasticsearch:9200"
+        index => "employee"
+        #user => "${ELASTIC_USERNAME}"
+        #password => "${ELASTIC_PASSWORD}"
+        #ssl => true
+        #ssl_certificate_verification => false
+        #truststore => "/etc/logstash/conf.d/pt-vx-elk-log.p12"
+        #truststore_password => ""
+        #keystore => "/etc/logstash/conf.d/pt-vx-elk-log.p12"
+        #keystore_password => ""
+}
+  stdout { codec => rubydebug }
+}
+
