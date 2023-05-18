@@ -93,6 +93,9 @@ services:
       - ELASTICSEARCH_USERNAME=kibana_system
       - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
       - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt
+      - SERVER_SSL_CERTIFICATE=config/certs/http-pt-vx-elk-kib.crt
+      - SERVER_SSL_ENABLED=true
+      - SERVER_SSL_KEY=config/certs/http-elasticsearch.key
 
         ####### Logstash Container Compose ######
 
