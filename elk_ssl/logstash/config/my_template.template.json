@@ -1,0 +1,90 @@
+{
+  "index_patterns": [
+      "employee*"
+  ],
+  "aliases": {},
+  "mappings": {
+    "date_detection": false,
+    "dynamic_templates" : [
+      {
+        "strings_as_keywords" : {
+          "match" : "*",
+          "match_mapping_type" : "string",
+          "mapping" : {
+            "type" : "keyword"
+          }
+        }
+      }
+    ],
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "@version": {
+          "type": "keyword"
+        },
+       "age": {
+          "type": "long"
+        },
+       "Annual Salary": {
+          "type": "keyword"
+        },
+        "Bonus %": {
+          "type": "keyword"
+        },
+         "Business Unit": {
+          "type": "keyword"
+        },
+       "City": {
+          "type": "keyword"
+        },
+        "Country": {
+          "type": "keyword"
+        },
+        "Department": {
+          "type": "keyword"
+        },
+        "Employee ID": {
+          "type": "keyword"
+        },
+        "Ethnicity": {
+          "type": "keyword"
+        },
+        "Exit Date": {
+          "type": "date"
+        },
+        "Full Name": {
+          "type": "keyword"
+        },
+        "Gender": {
+          "type": "keyword"
+        },
+        "Hire Date": {
+          "type": "date"
+        },
+        "host": {
+          "type": "keyword"
+        },
+        "Job Title": {
+          "type": "keyword"
+        },
+        "message": {
+          "type": "keyword"
+        },
+        "path": {
+          "type": "keyword"
+        },
+        "tags": {
+          "type": "keyword"
+      } 
+      }
+    },
+    "settings": {
+      "index": {
+          "number_of_shards": "1",
+          "number_of_replicas": "0",
+          "refresh_interval": "30s",
+          "codec": "best_compression"
+      }
+  }
+}
