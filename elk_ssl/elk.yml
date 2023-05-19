@@ -106,7 +106,10 @@ services:
       - ./logstash/pipeline/pipelines.yml:/usr/share/logstash/config/pipelines.yml
       - ./logstash/config/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
+      - ./logstash/config/logstash.keystore:/usr/share/logstash/config/logstash.keystore   
       - ./logstash/pipeline/emp.csv:/usr/share/logstash/emp.csv
+    environment:
+      - LOGSTASH_KEYSTORE_PASS=Changeme123    
     ports:
       - "5043:5044"
       - "5000:5000/tcp"
@@ -115,6 +118,8 @@ services:
       - "12201:12201/udp"
     depends_on:
       - es01
+    command: >
+      sh -c "bin/logstash-keystore create; bin/logstash-keystore add ES_PWD"    
 
         ###### Metricbeat container Coompose ##########
 
