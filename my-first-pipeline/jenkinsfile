@@ -8,10 +8,5 @@ pipeline {
         sh 'node --version'
       }
     }
-    stage('nginx-version') {
-      steps {
-        sh 'nginx -v'
-      }
-    }
   }
 }
