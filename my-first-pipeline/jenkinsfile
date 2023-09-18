@@ -9,9 +9,9 @@ pipeline {
         sh 'node --version'
       }
     }
-    stage('nginx') {
+    stage('nginx-version') {
       steps {
-        sh 'nginx --version'
+        sh 'nginx version'
       }
     }
   }
