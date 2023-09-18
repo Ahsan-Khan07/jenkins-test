@@ -1,6 +1,7 @@
 pipeline {
   agent {
     docker { image 'node:20-alpine3.17' }
+    docker { image 'nginx:latest' }
   }
   stages {
     stage('version') {
@@ -8,9 +9,9 @@ pipeline {
         sh 'node --version'
       }
     }
-    stage('docker-version') {
+    stage('nginx') {
       steps {
-        sh 'docker --version'
+        sh 'nginx --version'
       }
     }
     stage('remove-everything') {
