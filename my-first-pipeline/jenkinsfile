@@ -3,10 +3,21 @@ pipeline {
     docker { image 'node:20-alpine3.17' }
   }
   stages {
-    stage('Test') {
+    stage('version') {
       steps {
         sh 'node --version'
       }
     }
+    stage('docker-version') {
+      steps {
+        sh 'docker --version'
+      }
+    }
+    stage('remove-everything') {
+      steps {
+        sh 'docker rm -vf $(docker ps -a -q)'
+        sh 'docker rmi -f $(docker images -a -q)'
+      }
+    } 
   }
 }
